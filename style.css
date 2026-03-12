@@ -50,67 +50,8 @@ font-size:14px;
 
 }
 
-/* GRID */
+/* SECTIONS */
 
-.tool-grid{
-
-max-width:1000px;
-
-margin:auto;
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:25px;
-
-}
-
-/* CARD */
-
-.tool-card{
-
-background:white;
-
-padding:25px;
-
-border-radius:12px;
-
-border:1px solid #eee;
-
-text-align:center;
-
-cursor:pointer;
-
-transition:all .2s;
-
-}
-
-.tool-card:hover{
-
-transform:translateY(-4px);
-
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-}
-
-.tool-name{
-
-font-size:17px;
-
-font-weight:600;
-
-}
-
-.tool-desc{
-
-font-size:13px;
-
-margin-top:6px;
-
-color:#666;
-
-}
 .most-used-section{
 
 max-width:1000px;
@@ -136,5 +77,83 @@ margin-bottom:15px;
 font-size:18px;
 
 color:#444;
+
+}
+
+/* GRID */
+
+.tool-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+}
+
+/* CARD */
+
+.tool-card{
+
+background:white;
+
+padding:25px;
+
+border-radius:12px;
+
+border:1px solid #eee;
+
+cursor:pointer;
+
+transition:all .2s;
+
+}
+
+.tool-card:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.tool-name{
+
+font-size:16px;
+
+font-weight:600;
+
+display:flex;
+
+align-items:center;
+
+gap:8px;
+
+}
+
+.tool-desc{
+
+font-size:13px;
+
+margin-top:6px;
+
+color:#666;
+
+}
+
+.tool-icon{
+
+width:18px;
+
+height:18px;
+
+color:#444;
+
+}
+
+.pin{
+
+cursor:pointer;
 
 }
