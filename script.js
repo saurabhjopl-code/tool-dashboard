@@ -1,39 +1,45 @@
 const tools = [
 
 {
-name:"Flipkart Ads Analyzer",
-desc:"Campaign performance insights",
-url:"https://yourlink1.com"
+name:"Demand Planning App",
+desc:"Smart Planning",
+url:"https://saurabhjopl-code.github.io/demand-engine-V2/"
 },
 
 {
-name:"Listing Matrix",
-desc:"Marketplace SKU visibility",
-url:"https://yourlink2.com"
+name:"Shipment Planning",
+desc:"DW 60-40 Enabled",
+url:"https://saurabhjopl-code.github.io/DW-Shipment-Planning-Engine-V2-Structure/"
 },
 
 {
-name:"PDF Label Sorter",
-desc:"Auto organize shipping labels",
-url:"https://yourlink3.com"
+name:"Flipkart & Myntra Reverse SP Engine",
+desc:"Reverse SP Engine",
+url:"https://saurabhjopl-code.github.io/flipkart-sp-calculator/"
 },
 
 {
-name:"Payment Reconciliation",
-desc:"Flipkart settlement analyzer",
-url:"https://yourlink4.com"
+name:"PDF label sorted",
+desc:"Sort by Size",
+url:"https://saurabhjopl-code.github.io/pdf-size-sorter/"
 },
 
 {
-name:"GMV Analytics",
-desc:"Sales & return insights",
-url:"https://yourlink5.com"
+name:"Flipkart Sales & PLA Analysis",
+desc:"Sales & PLA intelligence",
+url:"https://saurabhjopl-code.github.io/flipkart-sales-pla-test/"
 },
 
 {
-name:"Demand Planning Engine",
-desc:"Inventory forecasting",
-url:"https://yourlink6.com"
+name:"Listing Live Non-Live",
+desc:"Listing intelligence",
+url:"https://saurabhjopl-code.github.io/listing-intelligence-tool/"
+}
+
+{
+name:"Image FInder",
+desc:"Image FInder",
+url:"https://saurabhjopl-code.github.io/sku-image-viewer/"
 }
 
 ];
