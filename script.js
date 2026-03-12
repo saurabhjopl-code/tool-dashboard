@@ -34,7 +34,7 @@ url:"https://saurabhjopl-code.github.io/flipkart-sales-pla-test/"
 name:"Listing Live Non-Live",
 desc:"Listing intelligence",
 url:"https://saurabhjopl-code.github.io/listing-intelligence-tool/"
-}
+},
 
 {
 name:"Image FInder",
