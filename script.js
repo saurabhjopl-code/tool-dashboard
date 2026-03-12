@@ -19,7 +19,7 @@ url:"https://saurabhjopl-code.github.io/flipkart-sp-calculator/"
 },
 
 {
-name:"PDF label sorted",
+name:"PDF label sorter",
 desc:"Sort by Size",
 url:"https://saurabhjopl-code.github.io/pdf-size-sorter/"
 },
@@ -37,8 +37,8 @@ url:"https://saurabhjopl-code.github.io/listing-intelligence-tool/"
 },
 
 {
-name:"Image FInder",
-desc:"Image FInder",
+name:"Image Finder",
+desc:"SKU image viewer",
 url:"https://saurabhjopl-code.github.io/sku-image-viewer/"
 }
 
@@ -46,28 +46,54 @@ url:"https://saurabhjopl-code.github.io/sku-image-viewer/"
 
 
 const grid = document.getElementById("toolGrid");
+const search = document.getElementById("searchBox");
+const title = document.getElementById("appTitle");
+
+title.innerText = `Commerce Tool Hub (${tools.length})`;
 
 
-tools.forEach(tool=>{
+function renderTools(list){
 
-const card = document.createElement("div");
+grid.innerHTML="";
+
+list.forEach(tool=>{
+
+const card=document.createElement("div");
 
 card.className="tool-card";
 
 card.innerHTML=`
 
 <div class="tool-name">${tool.name}</div>
-
 <div class="tool-desc">${tool.desc}</div>
 
 `;
 
-card.onclick=()=>{
-
-window.open(tool.url,"_blank");
-
-};
+card.onclick=()=>window.open(tool.url,"_blank");
 
 grid.appendChild(card);
+
+});
+
+}
+
+renderTools(tools);
+
+
+/* SEARCH */
+
+search.addEventListener("input",()=>{
+
+const value=search.value.toLowerCase();
+
+const filtered=tools.filter(t=>
+
+t.name.toLowerCase().includes(value) ||
+
+t.desc.toLowerCase().includes(value)
+
+);
+
+renderTools(filtered);
 
 });
