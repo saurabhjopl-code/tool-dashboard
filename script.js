@@ -3,42 +3,49 @@ const tools = [
 {
 name:"Demand Planning App",
 desc:"Smart Planning",
+icon:"trending-up",
 url:"https://saurabhjopl-code.github.io/demand-engine-V2/"
 },
 
 {
 name:"Shipment Planning",
 desc:"DW 60-40 Enabled",
+icon:"truck",
 url:"https://saurabhjopl-code.github.io/DW-Shipment-Planning-Engine-V2-Structure/"
 },
 
 {
 name:"Flipkart & Myntra Reverse SP Engine",
 desc:"Reverse SP Engine",
+icon:"refresh-ccw",
 url:"https://saurabhjopl-code.github.io/flipkart-sp-calculator/"
 },
 
 {
 name:"PDF label sorter",
 desc:"Sort by Size",
+icon:"file-text",
 url:"https://saurabhjopl-code.github.io/pdf-size-sorter/"
 },
 
 {
 name:"Flipkart Sales & PLA Analysis",
 desc:"Sales & PLA intelligence",
+icon:"bar-chart-3",
 url:"https://saurabhjopl-code.github.io/flipkart-sales-pla-test/"
 },
 
 {
 name:"Listing Live Non-Live",
 desc:"Listing intelligence",
+icon:"tag",
 url:"https://saurabhjopl-code.github.io/listing-intelligence-tool/"
 },
 
 {
 name:"Image Finder",
 desc:"SKU image viewer",
+icon:"image",
 url:"https://saurabhjopl-code.github.io/sku-image-viewer/"
 }
 
@@ -50,11 +57,10 @@ const mostUsedGrid = document.getElementById("mostUsedGrid");
 const search = document.getElementById("searchBox");
 const title = document.getElementById("appTitle");
 
-
 title.innerText = `Commerce Tool Hub (${tools.length})`;
 
 
-/* storage */
+/* STORAGE */
 
 function getPinned(){
 return JSON.parse(localStorage.getItem("pinnedTools") || "[]");
@@ -98,7 +104,13 @@ card.className="tool-card";
 
 card.innerHTML=`
 
-<div class="tool-name">${tool.name}</div>
+<div class="tool-name">
+
+<i data-lucide="${tool.icon}" class="tool-icon"></i>
+
+${tool.name}
+
+</div>
 
 <div class="tool-desc">${tool.desc}</div>
 
@@ -128,6 +140,8 @@ mostUsedGrid.appendChild(card);
 
 });
 
+lucide.createIcons();
+
 }
 
 
@@ -141,13 +155,11 @@ grid.innerHTML="";
 const pinned = getPinned();
 const usage = getUsage();
 
-
 list.sort((a,b)=>{
 
 return (pinned.includes(b.name) - pinned.includes(a.name));
 
 });
-
 
 list.forEach(tool=>{
 
@@ -162,13 +174,17 @@ card.innerHTML=`
 
 <div style="display:flex;justify-content:space-between">
 
-<span class="tool-name">${tool.name}</span>
+<div class="tool-name">
 
-<span class="pin" data-tool="${tool.name}" style="cursor:pointer">
+<i data-lucide="${tool.icon}" class="tool-icon"></i>
 
+${tool.name}
+
+</div>
+
+<div class="pin" data-tool="${tool.name}">
 ${isPinned ? "⭐" : "☆"}
-
-</span>
+</div>
 
 </div>
 
@@ -179,7 +195,6 @@ Opened ${count} times
 </div>
 
 `;
-
 
 card.onclick=(e)=>{
 
@@ -198,7 +213,6 @@ renderMostUsed();
 renderTools(tools);
 
 };
-
 
 grid.appendChild(card);
 
@@ -232,6 +246,8 @@ renderTools(tools);
 };
 
 });
+
+lucide.createIcons();
 
 }
 
