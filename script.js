@@ -1,49 +1,71 @@
-const apps = [
+const tools = [
 
 {
-name: "Flipkart Ads Analyzer",
+title: "Flipkart Ads Analyzer",
+desc: "Analyze campaign performance",
+icon: "icons/ads.png",
 url: "https://yourlink1.com"
 },
 
 {
-name: "Listing Matrix Tool",
+title: "Listing Matrix",
+desc: "Marketplace SKU visibility",
+icon: "icons/listing.png",
 url: "https://yourlink2.com"
 },
 
 {
-name: "PDF Label Sorter",
+title: "PDF Label Sorter",
+desc: "Auto organize shipping labels",
+icon: "icons/pdf.png",
 url: "https://yourlink3.com"
 },
 
 {
-name: "Payment Reconciliation",
+title: "Payment Reconciliation",
+desc: "Flipkart settlement analyzer",
+icon: "icons/payment.png",
 url: "https://yourlink4.com"
 },
 
 {
-name: "GMV Analytics",
+title: "GMV Analytics",
+desc: "Sales and return insights",
+icon: "icons/gmv.png",
 url: "https://yourlink5.com"
 },
 
 {
-name: "Demand Planning Engine",
+title: "Demand Planning Engine",
+desc: "Inventory forecasting tool",
+icon: "icons/demand.png",
 url: "https://yourlink6.com"
 }
 
 ];
 
-const grid = document.getElementById("appGrid");
+const grid = document.getElementById("toolGrid");
 
-apps.forEach(app => {
+tools.forEach(tool => {
 
 const card = document.createElement("div");
 
-card.className = "app-card";
+card.className = "tool-card";
 
-card.innerHTML = `<div class="app-title">${app.name}</div>`;
+card.innerHTML = `
+
+<img src="${tool.icon}" class="tool-icon">
+
+<div class="tool-title">${tool.title}</div>
+
+<div class="tool-desc">${tool.desc}</div>
+
+`;
 
 card.onclick = () => {
-window.open(app.url, "_blank");
+
+window.open(tool.url,"_blank");
+
 };
 
 grid.appendChild(card);
