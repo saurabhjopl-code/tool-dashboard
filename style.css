@@ -2,7 +2,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
+font-family:system-ui;
 }
 
 body{
@@ -22,14 +22,32 @@ height:70px;
 margin-bottom:10px;
 }
 
-.title{
-font-size:28px;
-font-weight:700;
+#appTitle{
+font-size:30px;
+margin-bottom:5px;
 }
 
 .subtitle{
-font-size:14px;
 color:#777;
+margin-bottom:20px;
+}
+
+/* SEARCH */
+
+.search{
+
+width:300px;
+
+padding:10px;
+
+border-radius:8px;
+
+border:1px solid #ddd;
+
+outline:none;
+
+font-size:14px;
+
 }
 
 /* GRID */
@@ -81,8 +99,6 @@ box-shadow:0 10px 25px rgba(0,0,0,.08);
 font-size:17px;
 
 font-weight:600;
-
-color:#222;
 
 }
 
