@@ -46,10 +46,15 @@ url:"https://saurabhjopl-code.github.io/sku-image-viewer/"
 
 
 const grid = document.getElementById("toolGrid");
+const mostUsedGrid = document.getElementById("mostUsedGrid");
 const search = document.getElementById("searchBox");
 const title = document.getElementById("appTitle");
 
-/* localStorage helpers */
+
+title.innerText = `Commerce Tool Hub (${tools.length})`;
+
+
+/* storage */
 
 function getPinned(){
 return JSON.parse(localStorage.getItem("pinnedTools") || "[]");
@@ -68,12 +73,66 @@ localStorage.setItem("toolUsage", JSON.stringify(usage));
 }
 
 
-/* title counter */
 
-title.innerText = `Commerce Tool Hub (${tools.length})`;
+/* MOST USED */
+
+function renderMostUsed(){
+
+const usage = getUsage();
+
+const sorted = Object.entries(usage)
+.sort((a,b)=>b[1]-a[1])
+.slice(0,3);
+
+mostUsedGrid.innerHTML="";
+
+sorted.forEach(([name,count])=>{
+
+const tool = tools.find(t=>t.name===name);
+
+if(!tool) return;
+
+const card=document.createElement("div");
+
+card.className="tool-card";
+
+card.innerHTML=`
+
+<div class="tool-name">${tool.name}</div>
+
+<div class="tool-desc">${tool.desc}</div>
+
+<div style="font-size:12px;color:#888;margin-top:8px">
+Opened ${count} times
+</div>
+
+`;
+
+card.onclick=()=>{
+
+const usage = getUsage();
+
+usage[tool.name]=(usage[tool.name]||0)+1;
+
+saveUsage(usage);
+
+window.open(tool.url,"_blank");
+
+renderMostUsed();
+
+renderTools(tools);
+
+};
+
+mostUsedGrid.appendChild(card);
+
+});
+
+}
 
 
-/* render */
+
+/* TOOL GRID */
 
 function renderTools(list){
 
@@ -82,28 +141,33 @@ grid.innerHTML="";
 const pinned = getPinned();
 const usage = getUsage();
 
-/* sort pinned first */
 
 list.sort((a,b)=>{
+
 return (pinned.includes(b.name) - pinned.includes(a.name));
+
 });
+
 
 list.forEach(tool=>{
 
 const card=document.createElement("div");
+
 card.className="tool-card";
 
 const isPinned = pinned.includes(tool.name);
 const count = usage[tool.name] || 0;
 
-card.innerHTML = `
+card.innerHTML=`
 
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+<div style="display:flex;justify-content:space-between">
 
 <span class="tool-name">${tool.name}</span>
 
 <span class="pin" data-tool="${tool.name}" style="cursor:pointer">
+
 ${isPinned ? "⭐" : "☆"}
+
 </span>
 
 </div>
@@ -116,30 +180,30 @@ Opened ${count} times
 
 `;
 
-/* open tool */
 
-card.onclick = (e)=>{
+card.onclick=(e)=>{
 
 if(e.target.classList.contains("pin")) return;
 
 const usage = getUsage();
 
-usage[tool.name] = (usage[tool.name] || 0) + 1;
+usage[tool.name]=(usage[tool.name]||0)+1;
 
 saveUsage(usage);
 
 window.open(tool.url,"_blank");
 
+renderMostUsed();
+
 renderTools(tools);
 
 };
+
 
 grid.appendChild(card);
 
 });
 
-
-/* pin buttons */
 
 document.querySelectorAll(".pin").forEach(pin=>{
 
@@ -172,10 +236,12 @@ renderTools(tools);
 }
 
 
+renderMostUsed();
 renderTools(tools);
 
 
-/* search */
+
+/* SEARCH */
 
 search.addEventListener("input",()=>{
 
