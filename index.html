@@ -1,58 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Temporary Notice</title>
 
-<title>Commerce Tool Hub</title>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial, sans-serif;
+    }
 
-<link rel="stylesheet" href="style.css">
+    body{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        min-height:100vh;
+        background:#f4f6f9;
+        padding:20px;
+    }
 
-<script src="https://unpkg.com/lucide@latest"></script>
+    .notice-box{
+        max-width:600px;
+        width:100%;
+        background:#fff;
+        border-radius:16px;
+        padding:40px 30px;
+        text-align:center;
+        box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    }
 
+    .icon{
+        font-size:70px;
+        margin-bottom:20px;
+    }
+
+    h1{
+        color:#e53935;
+        margin-bottom:15px;
+        font-size:32px;
+    }
+
+    p{
+        font-size:20px;
+        color:#444;
+        line-height:1.6;
+    }
+
+    .footer{
+        margin-top:25px;
+        font-size:14px;
+        color:#888;
+    }
+</style>
 </head>
 
 <body>
 
-<div class="header">
+<div class="notice-box">
+    <div class="icon">💰</div>
+    <h1>Application Temporarily Unavailable</h1>
+    <p>
+        Once salary is paid,<br>
+        the app will be back again!
+    </p>
 
-<img src="logo.png" class="logo">
-
-<h1 id="appTitle">Commerce Tool Hub</h1>
-
-<p class="subtitle">Internal Productivity Dashboard</p>
-
-<input 
-type="text"
-id="searchBox"
-placeholder="Search tools..."
-class="search"
-/>
-
+    <div class="footer">
+        Awaiting salary credit...
+    </div>
 </div>
-
-
-<div class="most-used-section">
-
-<h2>🔥 Most Used Tools</h2>
-
-<div id="mostUsedGrid" class="tool-grid"></div>
-
-</div>
-
-
-<div class="all-tools">
-
-<h2>All Tools</h2>
-
-<div id="toolGrid" class="tool-grid"></div>
-
-</div>
-
-
-<script src="script.js"></script>
 
 </body>
 </html>
